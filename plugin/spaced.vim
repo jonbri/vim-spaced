@@ -22,18 +22,26 @@ function! ExecuteDeleteSpaceAtEOL()
     :s/\s\+$//
 endfunction
 
-" wt -> whitespace be tabs
+" wt -> whitespace to tabs
 vnoremap <leader>wt :call ExecuteWhiteSpaceToTabs()<CR>
-nnoremap <leader>wt :call ExecuteWhiteSpaceToTabs()<CR>
+nnoremap <silent> <Plug>ExecuteWhiteSpaceToTabsPlug :call ExecuteWhiteSpaceToTabs()<CR>
+\:call repeat#set("\<Plug>ExecuteWhiteSpaceToTabsPlug")<CR>
+nmap <leader>wt <Plug>ExecuteWhiteSpaceToTabsPlug
 
-" ws -> whitespace be spaces
+" ws -> whitespace to spaces
 vnoremap <leader>ws :call ExecuteWhiteSpaceToSpaces()<CR>
-nnoremap <leader>ws :call ExecuteWhiteSpaceToSpaces()<CR>
+nnoremap <silent> <Plug>ExecuteWhiteSpaceToSpacesPlug :call ExecuteWhiteSpaceToSpaces()<CR>
+\:call repeat#set("\<Plug>ExecuteWhiteSpaceToSpacesPlug")<CR>
+nmap <leader>ws <Plug>ExecuteWhiteSpaceToSpacesPlug
 
 " dwe -> delete windows line-endings
 vnoremap <leader>dwe :call ExecuteDeleteWindowsLineEndings()<CR>
-nnoremap <leader>dwe :call ExecuteDeleteWindowsLineEndings()<CR>
+nnoremap <silent> <Plug>ExecuteDeleteWindowsLineEndingsPlug :call ExecuteDeleteWindowsLineEndings()<CR>
+\:call repeat#set("\<Plug>ExecuteDeleteWindowsLineEndingsPlug")<CR>
+nmap <leader>dwe <Plug>ExecuteDeleteWindowsLineEndingsPlug
 
 " Kill space at eol
-nnoremap <leader>deol :call ExecuteDeleteSpaceAtEOL()<CR>
 vnoremap <leader>deol :call ExecuteDeleteSpaceAtEOL()<CR>
+nnoremap <silent> <Plug>ExecuteDeleteSpacesAtEOLPlug :call ExecuteDeleteSpaceAtEOL()<CR>
+\:call repeat#set("\<Plug>ExecuteDeleteSpacesAtEOLPlug")<CR>
+nmap <leader>deol <Plug>ExecuteDeleteSpacesAtEOLPlug
