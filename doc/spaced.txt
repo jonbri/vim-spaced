@@ -1,0 +1,17 @@
+*spaced.txt*  Spacing shortcuts
+
+Author:  Jonathan Brink
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                    *spaced*
+
+Plugin for dealing with spacing issues.
+
+
+ABOUT                                           *spaced-about*
+
+Grab the latest version or report a bug on GitHub:
+
+https://github.com/jonbri/vim-spaced
+
+ vim:tw=78:et:ft=help:norl:
