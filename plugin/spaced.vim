@@ -6,34 +6,31 @@ if exists("g:loaded_spaced") || &cp || v:version < 700
 endif
 let g:loaded_spaced = 1
 
-function! ExecuteWhiteSpaceToTabs()
+" wt -> whitespace to tabs
+function! ExecuteSpacesToTabs()
   :silent! s/\v^\s{4}/\t/g
   :silent! s/\v^\s{2}/\t/g
 endfunction
+vnoremap <leader>wt :call ExecuteSpacesToTabs()<CR>
+nnoremap <silent> <Plug>SpacesToTabsPlug :call ExecuteSpacesToTabs()<CR>
+\:call repeat#set("\<Plug>SpacesToTabsPlug")<CR>
+nmap <leader>wt <Plug>SpacesToTabsPlug
 
-function! ExecuteWhiteSpaceToSpaces()
+" ws -> whitespace to spaces
+function! ExecuteTabsToSpaces()
   :silent! s/\t/    /g
 endfunction
+vnoremap <leader>ws :call ExecuteTabsToSpaces()<CR>
+nnoremap <silent> <Plug>TabsToSpacesPlug :call ExecuteTabsToSpaces()<CR>
+\:call repeat#set("\<Plug>TabsToSpacesPlug")<CR>
+nmap <leader>ws <Plug>TabsToSpacesPlug
 
-function! ExecuteDeleteSpaceAtEOL()
+" Kill space at eol
+function! ExecuteCleanEOL()
   :silent! s/\v\r+\s*$//
   :silent! s/\v\s+$//
 endfunction
-
-" wt -> whitespace to tabs
-vnoremap <leader>wt :call ExecuteWhiteSpaceToTabs()<CR>
-nnoremap <silent> <Plug>ExecuteWhiteSpaceToTabsPlug :call ExecuteWhiteSpaceToTabs()<CR>
-\:call repeat#set("\<Plug>ExecuteWhiteSpaceToTabsPlug")<CR>
-nmap <leader>wt <Plug>ExecuteWhiteSpaceToTabsPlug
-
-" ws -> whitespace to spaces
-vnoremap <leader>ws :call ExecuteWhiteSpaceToSpaces()<CR>
-nnoremap <silent> <Plug>ExecuteWhiteSpaceToSpacesPlug :call ExecuteWhiteSpaceToSpaces()<CR>
-\:call repeat#set("\<Plug>ExecuteWhiteSpaceToSpacesPlug")<CR>
-nmap <leader>ws <Plug>ExecuteWhiteSpaceToSpacesPlug
-
-" Kill space at eol
-vnoremap <leader>deol :call ExecuteDeleteSpaceAtEOL()<CR>
-nnoremap <silent> <Plug>ExecuteDeleteSpacesAtEOLPlug :call ExecuteDeleteSpaceAtEOL()<CR>
-\:call repeat#set("\<Plug>ExecuteDeleteSpacesAtEOLPlug")<CR>
-nmap <leader>deol <Plug>ExecuteDeleteSpacesAtEOLPlug
+vnoremap <leader>deol :call ExecuteCleanEOL()<CR>
+nnoremap <silent> <Plug>CleanEOLPlug :call ExecuteCleanEOL()<CR>
+\:call repeat#set("\<Plug>CleanEOLPlug")<CR>
+nmap <leader>deol <Plug>CleanEOLPlug
