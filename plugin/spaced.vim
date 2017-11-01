@@ -6,31 +6,27 @@ if exists("g:loaded_spaced") || &cp || v:version < 700
 endif
 let g:loaded_spaced = 1
 
-" wt -> whitespace to tabs
-function! ExecuteSpacesToTabs()
-  :silent! s/\v^\s{4}/\t/g
-  :silent! s/\v^\s{2}/\t/g
+" cT -> toggle spaces/tabs at beginning of current line
+function! ExecuteToggleSpacesAndTabs()
+  if getline('.') =~ '^\s\s'
+    silent! s/\v^\s{4}/\t/g
+    silent! s/\v^\s{2}/\t/g
+  elseif getline('.') =~ '^\t'
+    silent! s/\t/    /g
+  endif
 endfunction
-vnoremap <leader>wt :call ExecuteSpacesToTabs()<CR>
-nnoremap <silent> <Plug>SpacesToTabsPlug :call ExecuteSpacesToTabs()<CR>
-\:call repeat#set("\<Plug>SpacesToTabsPlug")<CR>
-nmap <leader>wt <Plug>SpacesToTabsPlug
+vnoremap cT :call ExecuteToggleSpacesAndTabs()<CR>
+nnoremap <silent> <Plug>ToggleSpacesAndTabsPlug :call ExecuteToggleSpacesAndTabs()<CR>
+\:call repeat#set("\<Plug>ToggleSpacesAndTabsPlug")<CR>
+nmap cT <Plug>ToggleSpacesAndTabsPlug
 
-" ws -> whitespace to spaces
-function! ExecuteTabsToSpaces()
-  :silent! s/\t/    /g
-endfunction
-vnoremap <leader>ws :call ExecuteTabsToSpaces()<CR>
-nnoremap <silent> <Plug>TabsToSpacesPlug :call ExecuteTabsToSpaces()<CR>
-\:call repeat#set("\<Plug>TabsToSpacesPlug")<CR>
-nmap <leader>ws <Plug>TabsToSpacesPlug
 
-" Kill space at eol
+" d; -> remove unnecessary characters at end of current line
 function! ExecuteCleanEOL()
   :silent! s/\v\r+\s*$//
   :silent! s/\v\s+$//
 endfunction
-vnoremap <leader>deol :call ExecuteCleanEOL()<CR>
+vnoremap d; :call ExecuteCleanEOL()<CR>
 nnoremap <silent> <Plug>CleanEOLPlug :call ExecuteCleanEOL()<CR>
 \:call repeat#set("\<Plug>CleanEOLPlug")<CR>
-nmap <leader>deol <Plug>CleanEOLPlug
+nmap d; <Plug>CleanEOLPlug

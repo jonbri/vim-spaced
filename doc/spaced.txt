@@ -5,7 +5,13 @@ License: Same terms as Vim itself (see |license|)
 
 INTRODUCTION                                    *spaced*
 
-Plugin for dealing with spacing issues.
+Plugin for dealing with spacing and special character issues.
+
+                                                *cT*
+cT                      Toggle spaces/tabs at beginning of current line
+
+                                                *d;*
+d;                      Remove unnecessary characters at end of current line (spaces and windows line-endings)
 
 
 ABOUT                                           *spaced-about*
