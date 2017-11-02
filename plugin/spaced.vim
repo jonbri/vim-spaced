@@ -8,11 +8,10 @@ let g:loaded_spaced = 1
 
 " cT -> toggle spaces/tabs at beginning of current line
 function! ExecuteToggleSpacesAndTabs()
-  if getline('.') =~ '^\s\s'
-    silent! s/\v^\s{4}/\t/g
-    silent! s/\v^\s{2}/\t/g
-  elseif getline('.') =~ '^\t'
-    silent! s/\t/    /g
+  if getline('.') =~ '\v^\t'
+    silent! s/\v\t/    /g
+  elseif getline('.') =~ '\v^\s\s'
+    silent! s/\v\s{4}/\t/g
   endif
 endfunction
 vnoremap cT :call ExecuteToggleSpacesAndTabs()<CR>
