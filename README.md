@@ -1,6 +1,8 @@
 # vim-spaced
 Plugin for dealing with spacing and special character issues.
 
+Dependency: [vim-repeat](https://github.com/tpope/vim-repeat)
+
 ## Mappings
 `cT` -> Toggle spaces/tabs at beginning of current line
 
