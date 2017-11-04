@@ -10,8 +10,8 @@ Plugin for dealing with spacing and special character issues.
                                                 *cT*
 cT                      Toggle spaces/tabs at beginning of current line
 
-                                                *d;*
-d;                      Remove unnecessary characters at end of current line (spaces and windows line-endings)
+                                                *c;*
+c;                      Remove unnecessary characters at end of current line (spaces and windows line-endings)
 
 
 ABOUT                                           *spaced-about*

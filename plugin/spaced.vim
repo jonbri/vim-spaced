@@ -20,12 +20,12 @@ nnoremap <silent> <Plug>ToggleSpacesAndTabsPlug :call ExecuteToggleSpacesAndTabs
 nmap cT <Plug>ToggleSpacesAndTabsPlug
 
 
-" d; -> remove unnecessary characters at end of current line
+" c; -> remove unnecessary characters at end of current line
 function! ExecuteCleanEOL()
   :silent! s/\v\r+\s*$//
   :silent! s/\v\s+$//
 endfunction
-vnoremap d; :call ExecuteCleanEOL()<CR>
+vnoremap c; :call ExecuteCleanEOL()<CR>
 nnoremap <silent> <Plug>CleanEOLPlug :call ExecuteCleanEOL()<CR>
 \:call repeat#set("\<Plug>CleanEOLPlug")<CR>
-nmap d; <Plug>CleanEOLPlug
+nmap c; <Plug>CleanEOLPlug
