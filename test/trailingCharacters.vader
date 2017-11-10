@@ -1,0 +1,54 @@
+Given(remove trailing space, normal mode);
+Hello 
+Do:
+  c;
+Expect;
+Hello
+
+
+Given(remove trailing space, visual mode);
+Hello 
+Do:
+  Vc;
+Expect;
+Hello
+
+
+Given(remove trailing windows-line endings, normal mode);
+Hello
+Do:
+  c;
+Expect;
+Hello
+
+
+Given(remove trailing windows-line endings, visual mode);
+Hello
+Do:
+  Vc;
+Expect;
+Hello
+
+
+Given(confirm integration with repeat.vim);
+Hello 
+Hello 
+Do:
+  c;j.
+Expect;
+Hello
+Hello
+
+
+Given(remove combinations of chars at end, visual mode);
+Hello0
+Hello1 
+Hello2  
+Hello3   
+Do:
+  vapc;
+Expect;
+Hello0
+Hello1
+Hello2
+Hello3

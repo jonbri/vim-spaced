@@ -1,4 +1,6 @@
 # vim-spaced
+[![Build Status](https://travis-ci.org/jonbri/vim-spaced.svg?branch=master)](https://travis-ci.org/jonbri/vim-spaced)
+
 Plugin for dealing with spacing and special character issues.
 
 Dependency: [vim-repeat](https://github.com/tpope/vim-repeat)

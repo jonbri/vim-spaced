@@ -1,0 +1,62 @@
+Given(convert one tab to spaces, normal mode);
+	Hello
+Do:
+  cT
+Expect;
+    Hello
+
+
+Given(convert two tabs to spaces, normal mode);
+		Hello
+Do:
+  cT
+Expect;
+        Hello
+
+
+Given(convert block of tabs to spaces, visual mode);
+	Hello
+		Hello
+Do:
+  vapcT
+Expect;
+    Hello
+        Hello
+
+
+Given(convert one space to tab, normal mode);
+    Hello
+Do:
+  cT
+Expect;
+	Hello
+
+
+Given(convert two spaces to tab, normal mode);
+        Hello
+Do:
+  cT
+Expect;
+		Hello
+
+
+Given(confirm integration with repeat.vim);
+        Hello
+    Hello
+        Hello
+Do:
+  cTj.j..
+Expect;
+		Hello
+	Hello
+        Hello
+
+
+Given(convert block of spaces to tabs, visual mode);
+    Hello
+        Hello
+Do:
+  vapcT
+Expect;
+	Hello
+		Hello
